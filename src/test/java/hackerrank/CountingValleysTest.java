@@ -1,4 +1,4 @@
-package hakerrank;
+package hackerrank;
 
 import org.junit.Test;
 

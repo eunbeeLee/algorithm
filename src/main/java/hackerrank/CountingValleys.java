@@ -1,4 +1,4 @@
-package hakerrank;
+package hackerrank;
 
 /**
  * [Function Description]

@@ -1,9 +1,7 @@
-package hakerrank;
+package hackerrank;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 /**
  * john works at a clothing store. He has a large pile of socks that he must pair by color for sale.
