@@ -28,28 +28,21 @@ public class CountingValleys {
         int valley = 0;
         int seaLevel = 0;
 
-        Stack<Character> pathStack = new Stack<>();
+        Stack<Character> pathStack = new Stack<Character>();
 
         for (int i = 0; i < s.length(); i++){
+
             char path = s.charAt(i);
 
-            if (i > 0 && seaLevel == 0){
-                int halfStack = pathStack.size() % 2;
-                int pathCheck = 0;
-
-                for (int j = 0 ; j < halfStack; j++){
-                    if (pathStack.get(j) == 'D'){
-                        break;
-                    }
-                    pathCheck++;
-                }
-                if (pathCheck == halfStack){
-                    valley++;
-                }
-            }
-            seaLevel += path == 'D' ? -1 : 1;
+            seaLevel += path == 'D'? -1 : 1;
             pathStack.add(path);
 
+            if (seaLevel == 0 && pathStack.size() > 0){
+                if (pathStack.peek() == 'U'){
+                    valley ++;
+                    pathStack.clear();
+                }
+            }
         }
         return valley;
     }
