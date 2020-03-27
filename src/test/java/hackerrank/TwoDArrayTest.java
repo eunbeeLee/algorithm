@@ -21,7 +21,7 @@ public class TwoDArrayTest {
                         {0,0,1,2,4,0}};
 
         int result = TwoDArray.hourglassSum(arr);
-
+        System.out.println(result);
         assertEquals(19, result);
     }
 }
