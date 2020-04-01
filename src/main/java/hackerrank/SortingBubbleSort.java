@@ -27,6 +27,7 @@ public class SortingBubbleSort {
         printResult(swapCount, a);
     }
     static void printResult(int swapCount, int[] sortedArr){
+
         System.out.println("Array is sorted in "+ swapCount +" swaps.");
 
         System.out.println("First Element: " + sortedArr[0]);
