@@ -13,12 +13,59 @@ package hackerrank;
 
 public class MarkAndToys {
     static int maximumToys(int[] prices, int k) {
-        int result = 0;
+        int toyCount = 0;
+
+        quickSort(prices, 0, prices.length-1);
 
         for (int price : prices){
+            int bubget = k - price;
 
+            if (bubget < 0){
+                break;
+            }
+
+            toyCount ++;
+            k = bubget;
         }
 
-        return result;
+        return toyCount;
     }
+
+    static void quickSort(int[] unSortedArr, int start, int end){
+        int part2 = dividePartition(unSortedArr, start, end);
+
+        if (start < part2 -1){
+            quickSort(unSortedArr, start, part2 - 1);
+        }
+        if (part2 < end){
+            quickSort(unSortedArr, part2, end);
+        }
+    }
+
+    static int dividePartition(int[] arr, int start, int end){
+        int pivot = arr[(start + end) / 2];
+
+        while (start <= end){
+            while (arr[start] < pivot){
+                start++;
+            }
+            while (arr[end] > pivot){
+                end--;
+            }
+            if (start <= end){
+                swap(arr, start, end);
+                start ++;
+                end--;
+            }
+        }
+        return start;
+    }
+
+    static void swap(int[] arr, int start, int end) {
+        int tmp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = tmp;
+    }
+
+
 }
