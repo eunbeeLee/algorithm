@@ -1,5 +1,8 @@
 package hackerrank;
 
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * https://www.hackerrank.com/challenges/ctci-making-anagrams/problem?h_l=interview&playlist_slugs%5B%5D=interview-preparation-kit&playlist_slugs%5B%5D=strings
  *
@@ -23,6 +26,30 @@ public class MakingAnagrams {
 
     static int makeAnagram(String a, String b) {
         int deletions = 0;
+        Map<Character, Character> anagramMap = new HashMap<>();
+        int shortLength = a.length();
+
+        if (a.length() > b.length()){
+            shortLength = b.length();
+            deletions += a.length() - b.length();
+        }
+        if (a.length() < b.length()){
+            deletions += b.length() - a.length();
+        }
+
+        /**
+         * a:c
+         * c:b
+         */
+        for (int i= 0; i < shortLength; i++){
+            Character key = a.charAt(i);
+            Character value = b.charAt(i);
+
+            if (anagramMap.containsValue(key)){
+
+            }
+        }
+
 
         return deletions;
     }
