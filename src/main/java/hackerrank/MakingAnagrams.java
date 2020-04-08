@@ -38,19 +38,30 @@ public class MakingAnagrams {
         }
 
         /**
-         * a:c
-         * c:b
+         * c d e
+         * a b c
+         * c:a
+         * d:b
+         * e:c
+         *
          */
         for (int i= 0; i < shortLength; i++){
-            Character key = a.charAt(i);
-            Character value = b.charAt(i);
-
-            if (anagramMap.containsValue(key)){
-
-            }
+            anagramMap.put(a.charAt(i), b.charAt(i));
         }
 
-
+        for (Character key : anagramMap.keySet()) {
+            if (anagramMap.containsValue(key)){
+                anagramMap.remove(key);
+                deletions++;
+            }else{
+                Character newKey = anagramMap.get(key);
+                if (!anagramMap.get(newKey).equals(key)){
+                    deletions +=2;
+                    anagramMap.remove(key);
+                    anagramMap.remove(newKey);
+                }
+            }
+        }
         return deletions;
     }
 }
