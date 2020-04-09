@@ -1,0 +1,8 @@
+name: Slack notification
+env:
+  SLACK_WEBHOOK: ${{ https://hooks.slack.com/services/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 }}
+  SLACK_CHANNEL: 1day1commit
+  uses: eunbeelee/algorithms@master
+
+
+
