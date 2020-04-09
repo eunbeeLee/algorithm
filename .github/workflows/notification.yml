@@ -1,4 +1,4 @@
-name: Slack Notification.yml
+name: notification.yml
 on: [push]
 jobs: 
   slackNotification:
