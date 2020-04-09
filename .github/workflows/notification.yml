@@ -1,10 +1,15 @@
-name: Slack notification.yml
+name: Slack Notification.yml
 on: [push]
-
-env:
-  SLACK_WEBHOOK: ${{ https://hooks.slack.com/services/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 }}
-  SLACK_CHANNEL: 1day1commit
-  uses: eunbeelee/algorithms@master
+jobs: 
+  slackNotification:
+    name: Slack Notification
+    runs-on: [ubuntu-latest]
+    steps:
+      - uses: eunbeelee/algorithms@master
+        name: Slack Notification
+        env:
+          SLACK_WEBHOOK: ${{ https://hooks.slack.com/services/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 }}
+          SLACK_CHANNEL: 1day1commit
 
 
 
