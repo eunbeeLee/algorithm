@@ -1,6 +1,8 @@
 package hackerrank;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -25,43 +27,39 @@ import java.util.Map;
 public class MakingAnagrams {
 
     static int makeAnagram(String a, String b) {
-        int deletions = 0;
-        Map<Character, Character> anagramMap = new HashMap<>();
-        int shortLength = a.length();
+        List<Character> keyList = new ArrayList<>();
+        List<Character> valueList = new ArrayList<>();
 
-        if (a.length() > b.length()){
-            shortLength = b.length();
-            deletions += a.length() - b.length();
-        }
-        if (a.length() < b.length()){
-            deletions += b.length() - a.length();
-        }
+        int shortLength = a.length() > b.length()? b.length(): a.length();
 
         /**
          * c d e
          * a b c
-         * c:a
-         * d:b
-         * e:c
          *
          */
         for (int i= 0; i < shortLength; i++){
-            anagramMap.put(a.charAt(i), b.charAt(i));
+            keyList.add(a.charAt(i));
+            valueList.add(b.charAt(i));
         }
 
-        for (Character key : anagramMap.keySet()) {
-            if (anagramMap.containsValue(key)){
-                anagramMap.remove(key);
-                deletions++;
-            }else{
-                Character newKey = anagramMap.get(key);
-                if (!anagramMap.get(newKey).equals(key)){
-                    deletions +=2;
-                    anagramMap.remove(key);
-                    anagramMap.remove(newKey);
-                }
+        for (int i = 0; i < shortLength; i++){
+            if (shortLength >= keyList.size()){
+                break;
+            }
+            Character findValue = keyList.get(i);
+
+            int valueIndex = valueList.indexOf(findValue);
+            if (!(valueIndex > 0 && valueList.get(i).equals(keyList.get(valueIndex)))){
+
+                keyList.remove(valueIndex);
+                keyList.remove(i);
+
+                valueList.remove(valueIndex);
+                valueList.remove(i);
             }
         }
-        return deletions;
+
+
+        return shortLength - keyList.size();
     }
 }
