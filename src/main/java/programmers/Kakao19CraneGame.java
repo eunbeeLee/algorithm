@@ -11,7 +11,6 @@ public class Kakao19CraneGame {
         Stack<Integer> dollStorage = new Stack();
 
         for (int move : moves) {
-            int length = board.length;
             for (int i = 0 ; i < board.length; i++){
                 int doll = board[i][move-1];
 
