@@ -15,13 +15,9 @@ public class Kakao19CraneGame {
                 int doll = board[i][move-1];
 
                 if (doll > 0){
-                    if (dollStorage.size() > 0){
-                        if (dollStorage.peek() == doll){
+                    if (dollStorage.size() > 0 && dollStorage.peek() == doll){
                             dollStorage.pop();
                             removedDoll += 2;
-                        }else{
-                            dollStorage.add(doll);
-                        }
                     }else{
                         dollStorage.add(doll);
                     }
